@@ -4,19 +4,25 @@ public class Customer
 {
     //fields 
     private static int maxId = 0;
+    private int id;
     private String name;
-    private int cashOnHand;
+    private double cashOnHand;
 
     //constructor
-    public Customer(String name, int cashOnHand)
+    public Customer(String name, double cashOnHand)
     {
         maxId++;
-        id = maxId;
+        this.id = maxId;
         this.name = name;
         this.cashOnHand = cashOnHand;
     }
 
     //getters and setters
+    public int getId()
+    {
+        return id;
+    }
+    
     public void setName(String name)
     {
         this.name = name;
@@ -27,19 +33,21 @@ public class Customer
         return name;
     }
 
-    public void setCashOnHand(int cashOnHand)
+    public void setCashOnHand(double cashOnHand)
     {
         this.cashOnHand = cashOnHand;
     }
 
-    public String getCashOnHand()
+    public double getCashOnHand()
     {
         return cashOnHand;
     }
 
     //other methods
-    public void addCash(int cashToAdd)
+    public void addCash(double cashToAdd)
     {
         this.cashOnHand = this.cashOnHand + cashToAdd;
     }
+
+    // buy given total cash used in purchase???
 }

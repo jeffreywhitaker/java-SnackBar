@@ -6,19 +6,21 @@ public class Snack
     private static int maxId = 0;
     private String name;
     private int quantity;
-    private int cost;
+    private double cost;
     private int vendmachineId;
+
     // constructor
-    public Snack(String name, int quantity, int cost, int vendmachineId)
+    public Snack(String name, int quantity, double cost, int vendmachineId)
     {
         maxId++;
-        id = maxId;
+        this.id = maxId;
 
         this.name = name;
         this.quantity = quantity;
         this.cost = cost;
         this.vendmachineId = vendmachineId;
     }
+
     // getters and setters
     public int getId()
     {
@@ -45,12 +47,12 @@ public class Snack
         return quantity;
     }
 
-    public void setCost(int cost)
+    public void setCost(double cost)
     {
         this.cost = cost;
     }
 
-    public int getCost()
+    public double getCost()
     {
         return cost;
     }
@@ -60,5 +62,25 @@ public class Snack
         this.vendmachineId = vendmachineId;
     }
 
+    public int getVendmachineId()
+    {
+        return vendmachineId;
+    }
+
     // other methods
+    public void addQuantity(int quantityToAdd)
+    {
+        this.quantity = this.quantity + quantityToAdd;
+    }
+
+    public void buySnack(int numberToBuy)
+    {
+        quantity = quantity - numberToBuy;
+    }
+
+    public double getTotalCost(int quantityWanted)
+    {
+        totalCost = quantityWanted * cost;
+    }
+
 }

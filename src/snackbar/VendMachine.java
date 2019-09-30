@@ -10,7 +10,7 @@ public class VendMachine
     public VendMachine(String name)
     {
         maxId++;
-        id = maxId;
+        this.id = maxId;
         this.name = name;
     }
 
