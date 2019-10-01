@@ -22,7 +22,7 @@ public class Customer
     {
         return id;
     }
-    
+
     public void setName(String name)
     {
         this.name = name;
@@ -49,5 +49,8 @@ public class Customer
         this.cashOnHand = this.cashOnHand + cashToAdd;
     }
 
-    // buy given total cash used in purchase???
+    public void buySnack(double cashSpent)
+    {
+        this.cashOnHand = this.cashOnHand - cashSpent;
+    }
 }

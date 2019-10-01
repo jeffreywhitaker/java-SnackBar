@@ -18,6 +18,35 @@ public class Main
         Snack s5 = new Snack("Water", 20, 2.75, v2.getId());
 
         System.out.println("*** Processing ***");
+        performTransaction(c1, s4, 3);
+        performTransaction(c1, s3, 1);
+        performTransaction(c2, s4, 2);
+        c1.addCash(10.00);
+        System.out.println(c1.getName() + " has the following cash on hand: " + c1.getCashOnHand());
+        performTransaction(c1, s2, 1);
+        s3.addQuantity(12);
+        System.out.println(s3.getName() + " has quantity: " + s3.getQuantity());
+        performTransaction(c2, s3, 3);
 
+        System.out.println(s1.toString());
+        System.out.println(s2.toString());
+        System.out.println(s3.toString());
+        System.out.println(s4.toString());
+        System.out.println(s5.toString());
+        
+    }
+
+    public static void performTransaction(Customer customer, Snack snack, int quantity) {
+        customer.buySnack(snack.getTotalCost(quantity));
+        snack.setQuantity(snack.getQuantity() - quantity);
+        System.out.println(customer.getName() + " has the following cash on hand: " + customer.getCashOnHand());
+        System.out.println(snack.getName() + " has quantity: " + snack.getQuantity());
     }
 }
+
+// commands
+
+// javac snackbar/*.java
+// jar cvfe SnackBar.jar snackbar.Main snackbar/*.class
+// java -jar SnackBar.jar
+

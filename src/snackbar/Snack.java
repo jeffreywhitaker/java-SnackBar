@@ -4,6 +4,7 @@ public class Snack
 {
     // fields
     private static int maxId = 0;
+    private int id;
     private String name;
     private int quantity;
     private double cost;
@@ -24,7 +25,7 @@ public class Snack
     // getters and setters
     public int getId()
     {
-        retun id;
+        return id;
     }
 
     public void setName(String name)
@@ -75,12 +76,22 @@ public class Snack
 
     public void buySnack(int numberToBuy)
     {
-        quantity = quantity - numberToBuy;
+        this.quantity = this.quantity - numberToBuy;
     }
 
     public double getTotalCost(int quantityWanted)
     {
-        totalCost = quantityWanted * cost;
+        return quantityWanted * this.cost;
     }
 
+    @Override
+    public String toString()
+    {
+        String rtnStr = "Name: " + name + "\n" +
+                        "Quantity: " + quantity + "\n" +
+                        "Vending Machine ID: " + vendmachineId + "\n" +
+                        "Total Cost: " + (quantity * cost);
+
+        return rtnStr;
+    }
 }
